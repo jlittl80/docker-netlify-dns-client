@@ -59,21 +59,23 @@ def AddNetlifyDNS():
         print(response_del.read())
 
 
-# export NETLIFY_API_TOKEN=XXXXXXXXXXXXX
-try:
-     API_TOKEN = os.environ['NETLIFY_API_TOKEN']
-except:
-    print("Couldn't Get API_TOKEN evn var")
-    sys.exit(1)
-
-# export NETLIFY_URL
-try:
-     URL = os.environ['NETLIFY_URL']
-     urlv1 = URL.replace(".com", "_com")
-except:
-    print("Couldn't Get API_TOKEN evn var")
-    sys.exit(1)
 
 if __name__ == __main__:
+    
+    # export NETLIFY_API_TOKEN=XXXXXXXXXXXXX
+    try:
+        API_TOKEN = os.environ['NETLIFY_API_TOKEN']
+    except:
+        print("Couldn't Get API_TOKEN evn var")
+        sys.exit(1)
+
+    # export NETLIFY_URL
+    try:
+        URL = os.environ['NETLIFY_URL']
+        urlv1 = URL.replace(".com", "_com")
+    except:
+        print("Couldn't Get API_TOKEN evn var")
+        sys.exit(1)
+
     ipresp = json.loads(request.urlopen('https://api.ipify.org?format=json').read().decode("utf-8"))
     AddNetlifyDNS()
