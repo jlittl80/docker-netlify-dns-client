@@ -23,7 +23,7 @@ def getNetlifyDNS():
 def AddNetlifyDNS():
     global oldid, oldip
     getNetlifyDNS()
-    if ipresp['ip'] != oldip:
+    if ipresp['ip'] == oldip:
         LOG_FILE.write("IP hasn't changed...")
         sys.exit(0)
     else:
