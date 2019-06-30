@@ -60,7 +60,7 @@ def AddNetlifyDNS():
 
 
 
-if __name__ == __main__:
+if __name__ == '__main__':
     
     # export NETLIFY_API_TOKEN=XXXXXXXXXXXXX
     try:
