@@ -58,10 +58,7 @@ def AddNetlifyDNS():
         print(response.read())
         print(response_del.read())
 
-
-
-if __name__ == '__main__':
-    
+def run():
     # export NETLIFY_API_TOKEN=XXXXXXXXXXXXX
     try:
         API_TOKEN = os.environ['NETLIFY_API_TOKEN']
@@ -79,3 +76,9 @@ if __name__ == '__main__':
 
     ipresp = json.loads(request.urlopen('https://api.ipify.org?format=json').read().decode("utf-8"))
     AddNetlifyDNS()
+
+if __name__ == '__main__':
+    while True:
+        run()
+        time.sleep(1800)
+    
