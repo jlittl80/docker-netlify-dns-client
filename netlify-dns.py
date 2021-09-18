@@ -69,7 +69,7 @@ def run():
     # export NETLIFY_URL
     try:
         URL = os.environ['NETLIFY_URL']
-        urlv1 = URL.replace(".com", "_com")
+        global urlv1 = URL.replace(".com", "_com")
     except:
         print("Couldn't Get API_TOKEN evn var")
         sys.exit(1)
