@@ -9,5 +9,5 @@ run touch /data/env
 
 WORKDIR /app
 COPY netlify-dns.py /app/netlify-dns.py
-CMD ["test.py"]
+CMD ["netlify-dns.py"]
 ENTRYPOINT ["python3"]
