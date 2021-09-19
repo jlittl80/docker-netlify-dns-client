@@ -1,13 +1,10 @@
 FROM python:3
 
-RUN mkdir /app
+VOLUME /logs
 
-# expose volume
-VOLUME /data
-
-run touch /data/env
+RUN mkdir /app ;\
+    touch /logs/netlifydns.log
 
 WORKDIR /app
 COPY netlify-dns.py /app/netlify-dns.py
-CMD ["netlify-dns.py"]
-ENTRYPOINT ["python3"]
+CMD ["python3", "netlify-dns.py"]
