@@ -39,14 +39,8 @@ def AddNetlifyDNS(API_TOKEN, DOMAIN, URL, CURRENTIP):
         LogData("Changing IP's from " + oldData[2] + " to " + CURRENTIP)
 
         # Build the network requests to add & delete the enteries
-        if DOMAIN == URL:
-            # If the hostname and URL and the same, we want to pass that as the hostname (we are changing the top level domain i.e. we send 'google.com')
-            hostname = URL
-        else:
-            # If the hostname and URL arent the same, we want to pass the subdomain as the hostname (we are changing the subdomain i.e we send 'images' of 'images.google.com')
-            hostname = URL.replace(DOMAIN, "").replace("_", ".")[:-1]
         netlify_add_req = {}
-        netlify_add_req['hostname'] = hostname
+        netlify_add_req['hostname'] = URL.replace("_", ".")
         netlify_add_req['ttl'] = 3600
         netlify_add_req['type'] = oldData[1]
         netlify_add_req['value'] = CURRENTIP
