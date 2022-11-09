@@ -5,10 +5,13 @@ from urllib import request, parse
 import json
 import sys
 import time
+import datetime
 
 def LogData(message):
+    now = datetime.datetime.now()
+    date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
     with open("/logs/netlifydns.log", "a") as f:
-        f.write(message + '\n')
+        f.write(date_time + " <> " + message + '\n')
         print(message)
 
 
