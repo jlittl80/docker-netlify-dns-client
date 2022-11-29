@@ -1,9 +1,10 @@
 FROM python:3
 
+RUN mkdir /logs ;\
+    touch /logs/netlifydns.log
 VOLUME /logs
 
-RUN mkdir /app ;\
-    touch /logs/netlifydns.log
+RUN mkdir /app
 
 WORKDIR /app
 COPY netlify-dns.py /app/netlify-dns.py
